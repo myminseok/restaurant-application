@@ -20,6 +20,11 @@ public class RestaurantController {
 		this.restaurantAvailabilityService = restaurantAvailabilityService;
 	}
 
+	@GetMapping("/")
+	public Flux<Restaurant> getByCategoryAndPrice() {
+		return this.repository.findAll();
+	}
+
 	@GetMapping("/restaurants")
 	public Flux<Restaurant> getByCategoryAndPrice(@RequestParam String category,
 			@RequestParam Double maxPrice) {
